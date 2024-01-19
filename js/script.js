@@ -38,7 +38,7 @@ for (var i = 0; i < cards.length; i++) {
             flip.classList.remove("trnsf-reset");
             flip.classList.add("trnsf");
         }
-        if (tgt.getAttribute('id') == 'trsf') {
+        if (tgt.getAttribute('id') == 'back-cover') {
             flip.classList.remove("trnsf");
             flip.classList.add("trnsf-reset");
         }

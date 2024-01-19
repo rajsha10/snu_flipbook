@@ -57,13 +57,13 @@ p{
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;
 }
-#portada{
-	background: url('/img/front.avif');
+#cover{
+	background: url('/snu_flipbook/img/front.avif');
 }
-#portada-back{
-	background: url('/img/front.avif');
+#c-back{
+	background: url('/snu_flipbook/img/front.avif');
 }
-#portada, #portada-back{
+#cover, #c-back{
 	background-size: 100% 100%;
 }
 
