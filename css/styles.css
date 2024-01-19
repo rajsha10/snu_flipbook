@@ -19,10 +19,10 @@ p{
 	background: #2d6f75;
 }
 .book-content{
-	width: 65%;
+	width: 100%;
 	min-width: 350px;
-	max-width: 500px;
-	height: 330px;
+	max-width: 600px;
+	height: 480px;
 	position: relative;
 	perspective: 1000px;
 	transition: 1s;
@@ -40,6 +40,7 @@ p{
 	height: 100%;
 	background: white;
 	padding: 15px;
+	border-radius: 4%;
 	box-sizing: border-box;
 	overflow: hidden;
 }
@@ -57,22 +58,46 @@ p{
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;
 }
-#cover{
-	background: url('/snu_flipbook/img/front.avif');
+#fcover{
+	position: relative;
+	top : -10px;
+	height: 500px;
+	width : 410px;
+	background: url('/img/front.avif');
 }
 #c-back{
-	background: url('/snu_flipbook/img/front.avif');
+	top : -10px;
+	height: 500px;
+	width : 410px;
+	background: url('/img/front.avif');
 }
-#cover, #c-back{
+#fcover, #c-back{
 	background-size: 100% 100%;
 }
 
-.trnsf{
+#inside-front-cover, #inside-back-cover{
+	top : -10px;
+	height: 500px;
+	width : 410px;
+	background-color: maroon;
+}
+
+#inside-back-cover{
+	position: relative;
+}
+
+.slide-to-center {
+    transform: translateX(calc(65%));
+    transition: transform 2s;
+}
+
+
+/* .trnsf{
 	transform: translateX(80px);
 }
 .trnsf-reset{
 	transform: translateX(0px);
-}
+} */
 
 /* @media */
 
