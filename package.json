@@ -1,0 +1,14 @@
+{
+  "name": "snu_flipbook",
+  "version": "1.0.0",
+  "description": "The following repository has been created for LitSync, the Book Recommendation Engine that is being created by team SKEPSIS.",
+  "main": "userDb.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^6.3.0"
+  }
+}
