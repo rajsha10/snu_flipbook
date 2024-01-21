@@ -16,8 +16,10 @@ import random
 import requests
 
 class BookRecommendationSystem:
-    def __init__(self):
+    def __init__(self, gemini_api_key):
+        self.gemini_api_key = gemini_api_key
         script_dir = os.path.dirname(os.path.realpath(__file__))
+        self.book_name = ""
         self.movies_data = [
             {"Movie Title": "Avatar: The Way of Water", "Genre": "Wildlife,Action,Sci-fi, Adventure"},
             {"Movie Title": "Uri: The Surgical Strike", "Genre": "Action, War, Indian Army, Non-Fiction"},
@@ -48,6 +50,10 @@ class BookRecommendationSystem:
         self.similarity = np.load(os.path.join(script_dir, 'similarity_matrix.npy'))
         self.selected_genres = set()
 
+        self.favorite_books = []  
+        self.favorite_authors = []  
+        self.topics_of_interest = [] 
+
     def preprocess_pricing_column(self):
         self.df['Pricing'] = self.df['Pricing'].str.replace(r'[^\d\-.,]', '', regex=True)
         self.df['Pricing'] = self.df['Pricing'].str.replace(',', '')
@@ -74,7 +80,21 @@ class BookRecommendationSystem:
                 print("Invalid input. Please enter 1 or 2.")
 
     def get_user_input(self):
-        self.book_name = input('Enter your favorite book name: ').lower()
+        print('Select your three favorite books:')
+        for i in range(3):
+            book = input(f"Enter the name of favorite book {i+1}: ").lower()
+            self.favorite_books.append(book)
+
+        print('Select your three favorite authors:')
+        for i in range(3):
+            author = input(f"Enter the name of favorite author {i+1}: ").lower()
+            self.favorite_authors.append(author)
+        
+        print('Select your three topics of interest:')
+        for i in range(3):
+            topic = input(f"Enter the topic of interest {i+1}: ").lower()
+            self.topics_of_interest.append(topic)
+        
         try:
             self.max_price = float(input('Enter your maximum price (numeric value only): '))
         except ValueError:
@@ -82,15 +102,37 @@ class BookRecommendationSystem:
             self.max_price = float('inf')
 
     def filter_books_by_genre(self):
+        title_matches = self.df[self.df['Book Title'].str.lower().isin([book.lower() for book in self.favorite_books])]
+
+        if title_matches.empty:
+            print(f"No close match found for any of the favorite books: {', '.join(self.favorite_books)}")
+            return
+
+        user_selection = self.get_user_selection(self.display_random_pairs())
+        self.selected_genres.update(user_selection['Genre'].split(','))
+
+        sorted_similar_books = self._get_sorted_similar_books()
+        filtered_books = self._filter_books_by_genre(sorted_similar_books)
+
+        title_matches = self.df[self.df['Book Title'].str.lower().isin([book.lower() for book in self.favorite_books])]
+
+        user_selection = self.get_user_selection(self.display_random_pairs())
+        self.selected_genres.update(user_selection['Genre'].split(','))
+
+        filtered_books = self._filter_books_by_genre(sorted_similar_books)
+        if not filtered_books:
+            print("No books found based on selected genres. Displaying books based on titles and prices.")
+            filtered_books = self._filter_books_by_price(sorted_similar_books)
+
         for _ in range(5):
             movie_pair = self.display_random_pairs()
             user_selection = self.get_user_selection(movie_pair)
             self.selected_genres.update(user_selection['Genre'].split(','))
 
-        title_matches = self.df[self.df['Book Title'].str.lower().str.contains(self.book_name)]
+        title_matches = self.df[self.df['Book Title'].str.lower().isin([book.lower() for book in self.favorite_books])]
 
         if title_matches.empty:
-            print(f"No close match found for '{self.book_name}'.")
+            print(f"No close match found for any of the favorite books: {', '.join(self.favorite_books)}")
         else:
             index_of_the_book = title_matches.index[0]
 
@@ -98,12 +140,15 @@ class BookRecommendationSystem:
             sorted_similar_books = sorted(similarity_score, key=lambda x: x[1], reverse=True)
             self.preprocess_pricing_column()
 
+            user_selection = self.get_user_selection(self.display_random_pairs())
+            self.selected_genres.update(user_selection['Genre'].split(','))
+
             filtered_books = self._filter_books_by_genre(sorted_similar_books)
             if not filtered_books:
                 print("No books found based on selected genres. Displaying books based on titles and prices.")
                 filtered_books = self._filter_books_by_price(sorted_similar_books)
 
-            self.display_books(filtered_books)
+            self.display_books(filtered_books[:10])
 
     def _filter_books_by_genre(self, sorted_similar_books):
         filtered_books = []
@@ -118,6 +163,80 @@ class BookRecommendationSystem:
     def _filter_books_by_price(self, sorted_similar_books):
         max_price_books = [book for book in sorted_similar_books if self.df.loc[book[0], 'Pricing'] <= self.max_price]
         return max_price_books
+    
+    def _get_sorted_similar_books(self):
+        if self.df.empty:
+            print("Warning: Dataframe is empty.")
+            return []
+
+        index_of_the_book = self.df[self.df['Book Title'].str.lower() == self.book_name].index
+        if not index_of_the_book.empty:
+            index_of_the_book = index_of_the_book[0]
+            similarity_score = list(enumerate(self.similarity[index_of_the_book]))
+            return sorted(similarity_score, key=lambda x: x[1], reverse=True)
+        else:
+            print(f"No close match found for '{self.book_name}'.")
+            return []
+        
+    def get_gemini_recommendations(self, favorite_books, favorite_authors, topics_of_interest):
+        headers = {
+            'Authorization': f'Bearer {self.gemini_api_key}',
+            'Content-Type': 'application/json',
+        }
+
+        payload = {
+            'favorite_books': favorite_books,
+            'favorite_authors': favorite_authors,
+            'topics_of_interest': topics_of_interest,
+        }
+        gemini_api_url = 'https://api.gemini.com/recommendations'
+        response = requests.post(gemini_api_url, json=payload, headers=headers)
+
+        if response.status_code == 200:
+            recommendations = response.json()['recommendations']
+            print('Gemini Recommendations:')
+            for i, book in enumerate(recommendations, 1):
+                print(f'{i}. {book["title"]} ({book["author"]})')
+        else:
+            print(f'Error fetching recommendations from Gemini API. Status code: {response.status_code}')
+    
+    def user_input_from_gemini(self, gemini_recommendations, category_name):
+        print(f"\nSelect {category_name} from the list:")
+        for i, item in enumerate(gemini_recommendations, 1):
+            print(f"{i}. {item}")
+
+        while True:
+            selected_indices = input(f"Enter the numbers (comma-separated) for your preferred {category_name}: ")
+            try:
+                selected_indices = [int(index) for index in selected_indices.split(',')]
+                return [gemini_recommendations[index - 1] for index in selected_indices]
+            except (ValueError, IndexError):
+                print("Invalid input. Please enter valid numbers separated by commas.")
+
+    def get_user_gemini_input(self):
+        gemini_books = self.get_gemini_recommendations(self.favorite_books, self.favorite_authors, self.topics_of_interest)[:5]
+
+        selected_books = self.user_input_from_gemini(gemini_books, "books")
+        selected_authors = self.user_input_from_gemini(gemini_authors, "authors")
+        selected_interests = self.user_input_from_gemini(gemini_interests, "interests")
+
+        return selected_books, selected_authors, selected_interests
+    
+    def recommend_books(self):
+        gemini_books, gemini_authors, gemini_interests = self.get_user_gemini_input()
+
+        selected_books = gemini_books + random.sample(self.movies_data, k=5)
+        selected_movies = [self.get_user_selection(self.display_random_pairs()) for _ in range(5)]
+        selected_movies = self._filter_books_by_price(selected_movies)
+
+        combined_suggestions = selected_books + selected_movies
+        
+        print("\nCombined Recommendations:")
+        for i, book in enumerate(selected_books, 1):
+            if 'title' in book and 'author' in book:
+                print(f"{i}. {book['title']} ({book['author']})")
+            elif 'Movie Title' in book and 'Genre' in book:
+                print(f"{i}. {book['Movie Title']} ({book['Genre']})")
 
     def display_books(self, filtered_books):
         print('Books suggested for you within your criteria:\n')
@@ -128,12 +247,13 @@ class BookRecommendationSystem:
             if i < 21:
                 print(i, '.', title_from_index)
                 i += 1
+gemini_api_key = 'AIzaSyDy5fSRXo8mv71S3GPwUB8LYWlYvPUCWWk' 
+book_system = BookRecommendationSystem(gemini_api_key)
 
-book_system = BookRecommendationSystem()
 book_system.get_user_input()
 book_system.filter_books_by_genre()
 
-df = pd.read_csv('Book details_tech.csv')
+df = pd.read_csv('/workspaces/SKEPSIS_snu_flipbook/Python/Book details_tech.csv')
 unique_titles = df['Book Title'].unique()
 print(unique_titles)
 '''Given the favorite book {book_name} in the style of the author {author_name}, recommend the top 5 closest books. Consider books from the following list: 'Iridescent Skin: A Multispecies Journey of White Sharks & Caged humans', 'The Forgotten Palaces of Calcutta', 'Wayel Kati: The Quest of the Seven Guardians', 'Masala and Murder', 'Dala's Street', 'Field Marshal Sam Manekshaw: The Man and His Times', 'Mahanadi: The Tale of a River', 'Preeto & Other Stories: The Male Gaze in Urdu', 'Chai: The Experience of Indian Tea', 'Charu Majumdar: The Dreamer Rebel', 'Soumitra Chatterjee: A Life in Cinema, Theatre, Poetry & Painting', 'Phantom Lovers: Two Novellas', 'Entering the Maze: Queer Fiction of Krishnagopal Mallick', 'Sita Returns: Modern India through Her Eyes', 'A City in the Making: Aspects of Calcutta’s Early Growth', 'Bangladesh War: Report from Ground Zero', 'The Butterfly Effect', 'Jagadish Chandra Bose: The Reluctant Physicist', 'The Aryabhata Clan', 'The Bhagavad Gita: A Life-Changing Conversation', 'The Parrot Green Saree', 'Spellcasters: A Novel', 'Rereading Tagore', 'I, Anupam', 'Zorba the Buddha', 'The Life an Times of David Hare: First Secular Educationist of India', 'Kabulnama', 'Chitra Pothi: Illustrated Palm-Leaf Manuscripts from Orissa', 'The Hungry Stones and Other Stories', 'Rabindranath Tagore: A Pictorial Biography', 'Tracing Marco Polo’s Journey: The Silk Route', 'Sunderbans: The Mystic Mangrove', 'PC Sorcar: The Maharaja of Magic', 'Bengali Culture: Over a Thousand Years', 'Historic Temples in Pakistan: A Call to Conscience', 'Gupp & Gossip: From the Hills', 'Architecture of Santiniketan: Tagore’s Concept of Space', 'Beyond the Himalayas: Journeying Through The Silk Route', 'Indian Classical Dance: The Renaissance and Beyond', 'Jamini Roy: A painter who revisited the roots', 'Dagars and Dhrupad: Divine Legacy', 'A Gift of Grace: The Essence of Guru Nanak’s Spirituality', 'The Little Prince', 'Robinson Crusoe', 'The Wind in the Willows', 'A Dog’s Tale’ and ‘Jungle Stories', 'White & Black: Journey to the Centre of Imperial Calcutta', 'Yatra: An Unfinished Novel'.'''
