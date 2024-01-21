@@ -64,14 +64,20 @@ class BookRecommendationSystem:
                 print("Invalid input. Please enter 1 or 2.")
 
     def get_user_input(self):
-        self.book_name = user_favorite_books[0].lower()
+
+        user_favorite_books_list = user_favorite_books.split(',')
+        
+        if user_favorite_books_list:
+            self.book_name = user_favorite_books_list[0].strip().lower()
+        else:
+            print("Warning: Empty user_favorite_books list. Please provide at least one favorite book.")
+            self.book_name = input('Enter your favorite book name: ').lower()
 
         try:
             self.max_price = float(input('Enter your maximum price (numeric value only): '))
         except ValueError:
             print("Invalid input for maximum price. Please enter a numeric value.")
             self.max_price = float('inf')
-
     def filter_books_by_genre(self):
         for _ in range(5):
             movie_pair = self.display_random_pairs()
@@ -116,6 +122,6 @@ class BookRecommendationSystem:
         for book in filtered_books:
             index = book[0]
             title_from_index = self.df.loc[index, 'Book Title']
-            if i < 6:
+            if i < 21:
                 print(i, '.', title_from_index)
                 i += 1

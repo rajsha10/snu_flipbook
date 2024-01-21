@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test quiz</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="wallPaper">
+            <div class="photoFrame"></div>
+            <div class="teleCont">
+                <div class="television">
+                    <button class="onOff"></button>                
+                </div>
+            </div>
+            
+            <div class="arrow"></div>
+        </div>
+        <div class="woodenBase"></div>
+    </div>
+
+    <div id="fullScreenImage" class="fullscreen-image">
+        <div id="ch10" class="channel"  >
+            <div id="channelNo">CH 01</div>
+            <div class="question">
+                <p>
+                </p>
+                
+            </div>
+            <div class="answerPanel" id="panel1">
+                <div class="imagePanel">
+                    <div class="image" id="option1"></div>
+                    OR
+                    <div class="image" id="option2"></div>
+                </div>
+            </div>
+
+            <div class="answerPanel" id="panel2">
+                <div class="imagePanel">
+                    <div class="image" id="option3"></div>
+                    OR
+                    <div class="image" id="option4"></div>
+                </div>
+            </div>
+
+            <div class="answerPanel" id="panel3">
+                <div class="imagePanel">
+                    <div class="image" id="option5"></div>
+                    OR
+                    <div class="image" id="option6"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ch02" class="hidechannel">
+            <div id="channelNo">CH 02</div>
+            <div class="question2">
+                <p id="Q2">
+                    Establish a budget on the money you are planning to spend on new books.
+                </p>
+            </div>
+            <div class="pricePanel" id="pricePanel">
+                <div class="priceArea">
+                    <div class="price-control">
+                        <button id="priceDown" onclick="adjustPrice(-500)">-</button>
+                        <div id="priceValue">500</div>
+                        <button id="priceUp" onclick="adjustPrice(500)">+</button>
+                    </div>
+                    <button id="submitPrice">SUBMIT</button>
+                </div>
+            </div>
+        </div>
+        <div id="ch03" class="hidechannel">
+            <div id="channelNo">CH 03</div>
+            <div class="question3">
+                <p id="Q2">
+                    SUBMIT YOUR DETAILS !
+                </p>
+            </div>
+
+            <div class="userInputs">
+                <div class="namePh">
+                    <div class="ips" id="name">
+                        <input class="inp" type="text" name="name" id="nm" required placeholder="NAME">
+                    </div>
+                    <div class="ips" id="phone">
+                        <input class="inp" type="text" name="phone" id="ph" required placeholder="PH NO.">
+                    </div>
+                </div>
+                <div class="ips" id="email">
+                    <input class="inp" type="email" name="email" id="mail" required placeholder="EMAIL">
+                </div>
+                <button id="submitDetails">SUBMIT</button>
+            </div>
+        </div>
+        <div id="ch04" class="hidechannel">
+            <div id="channelNo">CH 03</div>
+            <div class="question4">
+                <p id="Q2">
+                    SCAN THE QR CODE TO GET YOUR RECOMMENDED LIST OF BOOKS !
+                </p>
+            </div>
+
+            <div class="qrArea">
+                <div class="qr"></div>
+                <button id="done">DONE</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <div id="fullscreen-gif">
+        <img id="gifImage" src="/img/ChannelChangeT.V.Static-ezgif.com-video-to-gif-converter.gif">
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,410 @@
+@font-face {
+    font-family: 'KindlyRewind';
+    src: url('/fonts/Kindly\ Rewind.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'KindlyRewind', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.wallPaper {
+    height: 97%;
+    background: url(/img/background.png) center/cover no-repeat;
+}
+
+.teleCont{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.television {
+    position: absolute;
+    margin-top: 5%;
+    background: url(/img/TV.svg) center/cover no-repeat;
+    height: 100%;
+    width: 70vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.television .onOff {
+    background: url(/img/switch.png) center/cover no-repeat;
+    height: 7vw;
+    width: 7vw;
+    border-radius: 50%;
+    border: none;
+    margin-right: 11%;
+    margin-bottom: 17%;
+    cursor: pointer;
+}
+
+.onOff:active {
+    transform: rotate3d(0, 0, 1, 90deg);
+}
+
+.photoFrame {
+    position: absolute;
+    top: 2%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    right: 3vw;
+    background: url(/img/photoFrame.svg) center/cover no-repeat;
+    width: 17vw;
+    height: 17vw;
+}
+
+.arrow {
+    position: absolute;
+    background: url(/img/Arrow\ 06.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    right: 10vw;
+    top: 18vw;
+    width: 8vw;
+    height: 8vw;
+}
+
+.woodenBase {
+    background: url(/img/tv\ niche.png) center/cover no-repeat;
+    height: 6vw; 
+}
+
+/* Screen and Gif */
+.fullscreen-image {
+    display: none;
+    position: fixed;
+    top: 18px;
+    left: 0;
+    background: url(/img/TV\ screen.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%; 
+    height: 100%;
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    overflow: hidden;
+}
+
+.fullscreen-image.show {
+    opacity: 1;
+}
+
+#fullscreen-gif {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#fullscreen-gif.show {
+    opacity: 1;
+}
+
+#fullscreen-gif img {
+    width: 100%;
+    height: auto;
+}
+
+.Blur{
+    filter: blur(20px);
+}
+
+.hidechannel{
+    display: none;
+}
+
+.channel{
+    position: relative;
+    top: -10px;
+    width: 95%;
+    height: 90%;
+}
+
+#channelNo{
+    position: fixed;
+    font-size: 35px;
+    top: 90px;
+    right: 120px;
+}
+
+.question, .question2, .question3, .question4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 120px;
+    margin-left: 80px;
+    width: 85%;
+}
+
+.question p, .question2 p, .question3 p, .question4 p{
+    text-align: left;
+    font-size: 35px;
+    letter-spacing: 3px;
+}
+
+.answerPanel{
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.otherOption{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+.otherOption img{
+    width: 35px;
+    height: 35px;
+}
+
+.option1, .option2{
+    display: flex;
+}
+
+.otherOption p{
+    font-size: 35px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.otherOption p:hover{
+    scale: 0.98;
+}
+
+.imagePanel{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    font-size: 33px;
+}
+
+.image{
+    width: 350px;
+    height: 300px;
+    border: solid black 2px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.image:hover{
+    scale: 1.02;
+}
+
+#panel2{
+    position: absolute;
+    top: 200px;
+    left: 270px;
+    display: none;
+}
+
+#panel3{
+    position: absolute;
+    top: 200px;
+    right: 20%;
+    display: none;
+}
+
+.hidechannel {
+    display: none;
+}
+
+/* Price button */
+
+#pricePanel{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.priceArea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+
+.price-control {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+#priceDown, #priceUp{
+    font-size: 35px;
+    font-weight: 700;
+    padding: 8px 16px;
+    margin: 0 8px;
+    padding: 30px 60px;
+    border: none;
+    cursor: pointer;
+    transition: all ease 0.15s;
+}
+
+#priceDown:hover, #priceUp:hover{
+    scale: 1.02;
+}
+
+#priceDown{
+    background-color: rgb(227, 84, 84);
+    border-radius: 50% 20% 20% 50%;
+}
+
+#priceUp{
+    background-color: rgb(4, 168, 4);
+    border-radius: 20% 50% 50% 20%;
+}
+
+#priceValue {
+    font-size: 35px;
+    margin: 0 20px;
+    width: 100px;
+}
+
+#submitPrice{
+    font-size: 35px;
+    background-color: royalblue;
+    color: white;
+    border: solid 2px transparent;
+    padding: 20px 50px;
+    border-radius: 4%;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+#submitPrice:hover{
+    background-color: transparent;
+    border: solid 2px white;
+    scale: 0.98;
+}
+
+/* Channel 3 */
+.userInputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 500px;
+}
+
+.namePh{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ips{
+    border: 5px solid #000000;
+    border-radius: 7px;
+    padding: 10px 20px;
+}
+
+.inp{
+    font-size: 30px;
+    color: #000000;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+input::placeholder {
+    color: #000000; 
+}
+
+#email, #mail, #nm, #ph{
+    width: 80%;
+}
+
+#submitDetails{
+    display: none;
+    font-size: 30px;
+    padding: 15px 50px;
+    border-radius: 7px;
+    border: solid 2px #302F2F;
+    color: #FFFFFF;
+    background-color: #363535;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+#submitDetails:hover, #done:hover{
+    scale: 0.98;
+}
+
+/* qr */
+
+.qrArea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    gap: 50px;
+}
+.qr{
+    width: 300px;
+    height: 300px;
+    background-color: yellow;
+    border-radius: 5px;
+}
+
+#done{
+    font-size: 30px;
+    padding: 15px 50px;
+    border-radius: 7px;
+    border: solid 2px #302F2F;
+    color: #FFFFFF;
+    background-color: #363535;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+#done:hover{
+    scale: 0.98;
+}
+
+
+

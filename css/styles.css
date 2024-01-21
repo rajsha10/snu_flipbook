@@ -41,10 +41,11 @@ p{
 	transition: 1s;
 	transform-style: preserve-3d;
 	transform-origin: left; 
+	cursor: pointer;
 }
 .face-front, .face-back{
 	width: 100%;
-	height: 100%;
+	height: 98%;
 	padding: 15px;
 	border-radius: 4%;
 	box-sizing: border-box;
@@ -67,15 +68,15 @@ p{
 	border-bottom-right-radius: 3px;
 }
 #fcover{
-	background: url('/img/Cover.svg');
+	background: url('/img/Cover.png');
 	position: relative;
 	height: 620px;
-	width : 500px;
+	width : 480px;
 }
 #c-back{
 	height: 620px;
 	width : 480px;
-	background: url(/img/Last\ cover.svg);
+	background: url(/img/last-cover.png);
 }
 #c-back, #fcover{
 	top : -10px;
@@ -83,7 +84,7 @@ p{
 }
 
 #inside-front-cover, #inside-back-cover{
-	background: url(/img/Left\ cover.png);
+	background: url(/img/Left\ cover.svg);
 	top : -10px;
 	left: 2px;
 	height: 620px;
