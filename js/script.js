@@ -7,6 +7,13 @@ var container = document.querySelector('.book-content');
 
 var contZindex = 2;
 var customZindex = 1;
+var isLastPageClosed = false;
+
+function slideToCenter() {
+    setTimeout(function () {
+        container.classList.add("slide-to-center");
+    }, 2000);
+}
 
 for (var i = 0; i < cards.length; i++) {
     cards[i].style.zIndex = customZindex;
@@ -43,11 +50,10 @@ for (var i = 0; i < cards.length; i++) {
             flip.classList.add("trnsf-reset");
         }
 
-        //last slide after book close
-        if (contZindex > cards.length * 20) {
-            setTimeout(function () {
-                container.classList.add("slide-to-center");
-            }, 2000);
+        //last cover and trigger slide to center
+        if (!isLastPageClosed && contZindex > 5 * 20) {
+            isLastPageClosed = true;
+            slideToCenter();
         }
     });
 }
