@@ -119,7 +119,3 @@ class BookRecommendationSystem:
             if i < 6:
                 print(i, '.', title_from_index)
                 i += 1
-
-book_system = BookRecommendationSystem()
-book_system.get_user_input()
-book_system.filter_books_by_genre()
