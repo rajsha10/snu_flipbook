@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'KindlyRewind';
-    src: url('/television/fonts/Kindly\ Rewind.ttf') format('truetype');
+    src: url('/fonts/Kindly\ Rewind.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -28,7 +28,7 @@ body, html {
 .wallPaper {
     /* padding-top: 110px; */
     height: 97%;
-    background: url(/television/img/background.png) center/cover no-repeat;
+    background: url(/img/background.png) center/cover no-repeat;
 }
 
 .teleCont{
@@ -42,7 +42,7 @@ body, html {
 .television {
     position: absolute;
     margin-top: 5%;
-    background: url(/television/img/TV.svg) center/cover no-repeat;
+    background: url(/img/TV.svg) center/cover no-repeat;
     height: 100%;
     width: 70vw;
 
@@ -52,7 +52,7 @@ body, html {
 }
 
 .television .onOff {
-    background: url(/television/img/switch.png) center/cover no-repeat;
+    background: url(/img/switch.png) center/cover no-repeat;
     height: 7vw;
     width: 7vw;
     border-radius: 50%;
@@ -72,14 +72,14 @@ body, html {
     background-size: contain;
     background-repeat: no-repeat;
     right: 3vw;
-    background: url(/television/img/photoFrame.svg) center/cover no-repeat;
+    background: url(/img/photoFrame.svg) center/cover no-repeat;
     width: 17vw;
     height: 17vw;
 }
 
 .arrow {
     position: absolute;
-    background: url(/television/img/Arrow\ 06.svg);
+    background: url(/img/Arrow\ 06.svg);
     background-size: contain;
     background-repeat: no-repeat;
     right: 10vw;
@@ -89,7 +89,7 @@ body, html {
 }
 
 .woodenBase {
-    background: url(/television/img/tv\ niche.png) center/cover no-repeat;
+    background: url(/img/tv\ niche.png) center/cover no-repeat;
     height: 6vw; 
 }
 
@@ -99,7 +99,7 @@ body, html {
     position: fixed;
     top: 0px;
     left: 0;
-    background: url(/television/img/TV\ screen.svg);
+    background: url(/img/TV\ screen.svg);
     background-size: contain;
     background-repeat: no-repeat;
     width: 100%; 
