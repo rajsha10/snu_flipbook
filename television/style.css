@@ -388,7 +388,9 @@ input::placeholder {
 .qr{
     width: 300px;
     height: 300px;
-    background-color: yellow;
+    background: url(/img/QR.png);
+    background-size: cover;
+    background-position: center;
     border-radius: 5px;
 }
 
@@ -405,6 +407,48 @@ input::placeholder {
 
 #done:hover{
     scale: 0.98;
+}
+
+#option1{
+    background: url(/img/option1.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#option2{
+    background: url(/img/option2.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#option3{
+    background: url(/img/option3.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#option4{
+    background: url(/img/option4.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#option5{
+    background: url(/img/option5.jpeg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#option6{
+    background: url(/img/option6.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 
