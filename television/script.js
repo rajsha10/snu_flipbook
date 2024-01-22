@@ -169,10 +169,42 @@ document.body.addEventListener('click', function (event) {
     if (event.target.id.includes('submitDetails')) {
         setChannelHidden('ch03', 'fullscreen-gif', 'fullScreenImage', 'ch04');
     } 
+
+    //qr page
     if (event.target.id.includes('done')) {
         window.location.reload();
     }    
 });
+
+//Mongo db connection
+document.addEventListener('DOMContentLoaded', function () {
+    var submitDetailsButton = document.getElementById('submitDetails');
+
+    submitDetailsButton.addEventListener('click', function () {
+      var nameInput = document.getElementById('nm').value;
+      var phoneInput = document.getElementById('ph').value;
+      var emailInput = document.getElementById('mail').value;
+
+      // Send data to the server
+      fetch('http://localhost:3000/submitDetails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: nameInput,
+          phone: phoneInput,
+          email: emailInput,
+        }),
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          // Optionally, you can handle the response here
+        })
+        .catch(error => console.error('Error:', error));
+    });
+  });
 
 
 
