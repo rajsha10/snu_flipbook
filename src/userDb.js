@@ -3,7 +3,7 @@ const { MongoClient} = require('mongodb');
 const url = 'mongodb+srv://manjeet0796:manjeet0796@cluster0.irnuxnb.mongodb.net/?retryWrites=true&w=majority';
 
 const client = new MongoClient(url);
-const dbName = "CCU";               //this will be bookfair
+const dbName = "CCU";               //this will be bookFairDb
 const collectionName = "doctors";   //this will be users   in future
 
 const displayAll = () => {
@@ -25,7 +25,7 @@ const displayAll = () => {
     })
 }
 
-const user = {name: "raj", age: 33};
+// const user = {name: "raj", age: 33};         //this is details sample
 
 const insertUser = (user) => {
     return client.connect()
@@ -40,5 +40,6 @@ const insertUser = (user) => {
     })
 };
 
-// insertUser(user);
-displayAll();
+module.exports = {
+    insertUser
+}

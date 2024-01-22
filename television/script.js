@@ -184,9 +184,8 @@ document.addEventListener('DOMContentLoaded', function () {
       var nameInput = document.getElementById('nm').value;
       var phoneInput = document.getElementById('ph').value;
       var emailInput = document.getElementById('mail').value;
-
       // Send data to the server
-      fetch('http://localhost:3000/submitDetails', {
+      fetch('/submit', {      // mmm
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
