@@ -120,28 +120,28 @@ function setChannelHidden(channelToHideId, fullscreenGifId, fullScreenImageId, c
 }
 
 // submit button ch03
-document.addEventListener('DOMContentLoaded', function () {
-    var nameInput = document.getElementById('nm');
-    var phoneInput = document.getElementById('ph');
-    var emailInput = document.getElementById('mail');
-    var submitDetailsButton = document.getElementById('submitDetails');
+// document.addEventListener('DOMContentLoaded', function () {
+//     var nameInput = document.getElementById('nm');
+//     var phoneInput = document.getElementById('ph');
+//     var emailInput = document.getElementById('mail');
+//     var submitDetailsButton = document.getElementById('submitDetails');
 
-    function checkInputs() {
-        var nameValue = nameInput.value.trim();
-        var phoneValue = phoneInput.value.trim();
-        var emailValue = emailInput.value.trim();
+//     function checkInputs() {
+//         var nameValue = nameInput.value.trim();
+//         var phoneValue = phoneInput.value.trim();
+//         var emailValue = emailInput.value.trim();
 
-        var isInputsFilled = nameValue != '' && phoneValue != '' && emailValue != '';
+//         var isInputsFilled = nameValue != '' && phoneValue != '' && emailValue != '';
 
-        if(!isInputsFilled){
-            submitDetailsButton.style.display = 'flex';
-        }
-    }
+//         if(!isInputsFilled){
+//             submitDetailsButton.style.display = 'flex';
+//         }
+//     }
 
-    nameInput.addEventListener('input', checkInputs);
-    phoneInput.addEventListener('input', checkInputs);
-    emailInput.addEventListener('input', checkInputs);
-});
+//     nameInput.addEventListener('input', checkInputs);
+//     phoneInput.addEventListener('input', checkInputs);
+//     emailInput.addEventListener('input', checkInputs);
+// });
 
 
 document.body.addEventListener('click', function (event) {
@@ -200,7 +200,6 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
           console.log(data);
-          // Optionally, you can handle the response here
         })
         .catch(error => console.error('Error:', error));
     });
