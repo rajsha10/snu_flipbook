@@ -122,6 +122,6 @@ class BookRecommendationSystem:
         for book in filtered_books:
             index = book[0]
             title_from_index = self.df.loc[index, 'Book Title']
-            if i < 21:
+            if i < 6:
                 print(i, '.', title_from_index)
                 i += 1
