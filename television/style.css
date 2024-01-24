@@ -343,7 +343,7 @@ body, html {
     padding: 10px 20px;
 }
 
-.inp{
+.inp, .bookPanel{
     font-size: 30px;
     color: #000000;
     background: transparent;
@@ -407,5 +407,27 @@ input::placeholder {
     scale: 0.98;
 }
 
+
+/* Options panel  */
+#option1{
+    background: url(/img/option1.jpg);
+    background-size: cover;
+}
+#option2{
+    background: url(/img/option2.jpg);
+    background-size: cover;
+}
+/* #option1{
+    background-size: cover;
+    background: url(/img/option1.jpg);
+}
+#option1{
+    background-size: cover;
+    background: url(/img/option1.jpg);
+}
+#option1{
+    background-size: cover;
+    background: url(/img/option1.jpg);
+} */
 
 
