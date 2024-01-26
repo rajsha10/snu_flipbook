@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: sans-serif;
+    /* background-color: powderblue; */
+    background-image: url('./img/Bookbg.png');
+
+}
+
+/* Book */
+.book {
+    position: relative;
+    width: 350px;
+    height: 500px;
+    transition: transform 0.5s;
+}
+
+.paper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    perspective: 1500px;
+
+}
+
+.front,
+.back {
+    /* background-color:bisque; */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transition: transform 0.5s;
+    border-radius: 10px;
+}
+
+.front {
+    z-index: 1;
+    backface-visibility: hidden;
+    /* border-left: 3px solid powderblue; */
+}
+
+.back {
+    z-index: 0;
+}
+
+.front-content,
+.back-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.back-content {
+    transform: rotateY(180deg)
+}
+
+/* Paper flip effect */
+.flipped .front,
+.flipped .back {
+    transform: rotateY(-180deg);
+}
+
+/* Controller Buttons */
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.5s;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover i {
+    color: #636363;
+}
+
+.nxt {
+    width: 50px;
+    height: 50px;
+    color: gray;
+}
+
+/* Paper stack order */
+#p1 {
+    z-index: 3;
+}
+
+#p2 {
+    z-index: 2;
+}
+
+#p3 {
+    z-index: 1;
+}
+
+.bg{
+    position: relative;
+    width: 380px;
+    height: 540px;
+    top: 5px;
+    /* left: 0; */
+    /* right: 0; */
+    /* right: 30; */
+    transform-origin: left;
+    transition: transform 0.5s;
+}
+
+.backbg{
+    position: relative;
+    width: 375px;
+    height: 530px;
+    top: 5px;
+    left: 5px;
+    transform-origin: left;
+    transition: transform 0.5s;
+    border-radius: 10px;
+}
+
+.page1{
+
+    position: absolute;
+    width: 100%;
+    height: 510px;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transition: transform 0.5s;
+    border-radius: 10px;
+    background-image: url('./img/LEFTpg.png'); 
+    background-size: cover; 
+    background-position: center;
+
+} 
+
+.form{
+    position: relative;
+    align-items: top;
+    padding: 20px;
+}
+
+/* .hi{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transition: transform 0.5s;
+    border-radius: 10px;
+} */
+
+/* .page1{
+    width: 100%; /* Set the width as per your requirements */
+       /* Set the height as per your requirements */
+      /* background-color: #f0f0f0; Set a background color as a fallback */
+       /* Adjust background position property as needed */
+      /* border: 1px solid #ccc; */
+
+
+      .page2{
+        /* background-color:bisque; */
+        position: relative;
+        width: 100%;
+        height: 500px ;
+        top: 0;
+        left: 0;
+        bottom: 20;
+        transform-origin: left;
+        transition: transform 0.5s;
+        border-radius: 10px;
+        background-image: url('./img/RIGHTpg.png'); 
+        background-size: cover; 
+        background-position: center;
+      }
+
+      .page3{
+        /* background-color:bisque; */
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transform-origin: left;
+        transition: transform 0.5s;
+        border-radius: 10px;
+        background-image: url('./img/LEFTpg.png'); 
+        background-size: cover; 
+        background-position: center;
+      }
+
+      .page4{
+        /* background-color:bisque;  */
+         position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transform-origin: left;
+        transition: transform 0.5s;
+        border-radius: 10px;
+        background-image: url('./img/RIGHTpg.png'); 
+        background-size: cover; 
+        background-position: center;
+      }
+
+
+      .bg1{
+        position: relative;
+        width: 385px;
+        height: 530px;
+        top: 5px;
+        /* left: 0; */
+        /* right: 0; */
+        /* right: 30; */
+        transform-origin: left;
+        transition: transform 0.5s;
+      }
+
+
+      .textbox{
+        text-align: center;
+        text-decoration: solid;
+        width: 300px;
+        height: 40px;
+        ;
+      }

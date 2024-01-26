@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Previous Button -->
+    <button id="prev-btn">
+        <i class="fas fa-arrow-circle-left"></i>
+    </button>
+
+
+    <!-- Book -->
+    <div id="book" class="book">
+        <!-- Paper 1 -->
+        <div id="p1" class="paper">
+            <div class="front">
+                <div id="f1" class="front-content">
+                    <div class="frontcover">
+                        <img  class="bg" src="./img/BookCover.png">
+                    </div>
+                </div>
+            </div>
+        
+            <div class="back">
+                <!-- <div class="page1"> -->
+                <div id="b1" class="back-content">
+                        <img  class="bg1" src="./img/Left cover1.png">
+                </div>
+            </div>
+        </div>
+
+        <!-- Paper 2 -->
+        <div id="p2" class="paper">
+            <div class="front">
+                <div class="page2">
+                    <div id="f2" class="front-content">
+                        <div class="form">
+                            <h3>Pick the name of three books that are irreplacable for you</h3><br>
+                            <input id="booknames" class="textbox" type="text" placeholder="your ans">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 3 -->
+            <div class="back">
+                <div class="page3">
+                    <div id="b2" class="back-content">
+                        <div class="form">
+                            <h3>If you have to choose 3 authors,that left the most impact on you ,who would they be?</h3><br>
+                            <input id="authornames" class="textbox" type="text" placeholder="your ans">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paper 3 -->
+        <div id="p3" class="paper">
+            <div class="front">
+                <div class="page4">
+                    <div id="f3" class="front-content">
+                        <div class="form">
+                            <h3>Select three topics that intrigue your mind the most</h3><br>
+                            <input id="genre" class="textbox" type="text" placeholder="your ans">
+                            <button id="submitall">SUBMIT</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
+            <div class="back">
+                <div id="b3" class="back-content">
+                    <img class="backbg" src="./img/last cover.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Next Button -->
+    <button id="next-btn">
+        <img class="nxt" src="./img/next_button.svg" alt=" Next">
+        <!-- <i class="fas fa-arrow-circle-right"></i> -->
+    </button>
+</body>
+</html>
