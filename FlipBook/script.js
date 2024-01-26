@@ -6,14 +6,14 @@ const book = document.querySelector("#book");
 const paper1 = document.querySelector("#p1");
 const paper2 = document.querySelector("#p2");
 const paper3 = document.querySelector("#p3");
-
+const paper4 = document.querySelector("#p4");
 // Event Listener
 prevBtn.addEventListener("onClick", goPrevPage);
 nextBtn.addEventListener("click", goNextPage);
 
 // Business Logic
 let currentLocation = 1;
-let numOfPapers = 3;
+let numOfPapers = 4;
 let maxLocation = numOfPapers + 1;
 
 function openBook() {
@@ -44,10 +44,10 @@ function goNextPage() {
             case 2:
                 paper2.classList.add("flipped");
                 paper2.style.zIndex = 2;
+                paper3.style.zIndex = 2;
                 break;
-            case 3:
-                paper3.classList.add("flipped");
-                paper3.style.zIndex = 3;
+                case 3:
+                    paper3.classList.add("flipped");
                 closeBook(false);
                 break;
             default:
@@ -81,3 +81,37 @@ function goPrevPage() {
         currentLocation--;
     }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const submitDetailsButton = document.getElementById('submitall');
+
+
+    submitDetailsButton.addEventListener('click', function () {
+      const bookname= document.getElementById('booknames').value;
+      const authorname = document.getElementById('authornames').value;
+      const genre = document.getElementById('genre').value;
+
+      // Send data to the server
+      console.log(bookname, authorname, genre, "hello pruuuuth experiment")
+      fetch('/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: authorname,
+          book: bookname,
+          genre: genre,
+        }),
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+        })
+        .catch(error => console.error('Error:', error));
+    });
+  });
+
+
+
+
