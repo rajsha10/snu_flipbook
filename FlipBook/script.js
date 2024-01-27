@@ -1,6 +1,8 @@
 // References to DOM Elements
-const prevBtn = document.querySelector("#prev-btn");
-const nextBtn = document.querySelector("#next-btn");
+// const prevBtn = document.querySelector("#prev-btn");
+const nextBtn = document.querySelector(".bg");
+const nxt = document.querySelector("#firstSubmit");
+const toTele = document.querySelector("#finalSubmit"); //to television website
 const book = document.querySelector("#book");
 
 const paper1 = document.querySelector("#p1");
@@ -8,8 +10,9 @@ const paper2 = document.querySelector("#p2");
 const paper3 = document.querySelector("#p3");
 const paper4 = document.querySelector("#p4");
 // Event Listener
-prevBtn.addEventListener("onClick", goPrevPage);
+// prevBtn.addEventListener("click", goPrevPage);
 nextBtn.addEventListener("click", goNextPage);
+nxt.addEventListener("click", goNextPage);
 
 // Business Logic
 let currentLocation = 1;
@@ -18,7 +21,7 @@ let maxLocation = numOfPapers + 1;
 
 function openBook() {
     book.style.transform = "translateX(50%)";
-    prevBtn.style.transform = "translateX(-180px)";
+    // prevBtn.style.transform = "translateX(-180px)";
     nextBtn.style.transform = "translateX(180px)";
 }
 
@@ -29,7 +32,7 @@ function closeBook(isAtBeginning) {
         book.style.transform = "translateX(100%)";
     }
     
-    prevBtn.style.transform = "translateX(0px)";
+    // prevBtn.style.transform = "translateX(0px)";
     nextBtn.style.transform = "translateX(0px)";
 }
 
@@ -44,10 +47,11 @@ function goNextPage() {
             case 2:
                 paper2.classList.add("flipped");
                 paper2.style.zIndex = 2;
-                paper3.style.zIndex = 2;
+                paper3.style.zIndex = 3;
                 break;
-                case 3:
-                    paper3.classList.add("flipped");
+            case 3:
+                paper3.classList.add("flipped");
+                paper3.style.zIndex = 2;
                 closeBook(false);
                 break;
             default:
@@ -68,6 +72,7 @@ function goPrevPage() {
             case 3:
                 paper2.classList.remove("flipped");
                 paper2.style.zIndex = 2;
+                paper3.style.zIndex = 1;
                 break;
             case 4:
                 openBook();
@@ -83,7 +88,7 @@ function goPrevPage() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    const submitDetailsButton = document.getElementById('submitall');
+    const submitDetailsButton = document.getElementById('finalSubmit');
 
 
     submitDetailsButton.addEventListener('click', function () {
@@ -92,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const genre = document.getElementById('genre').value;
 
       // Send data to the server
-      console.log(bookname, authorname, genre, "hello pruuuuth experiment")
+      console.log(bookname, authorname, genre)
       fetch('/submit', {
         method: 'POST',
         headers: {
@@ -111,6 +116,38 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => console.error('Error:', error));
     });
   });
+
+//Final submit button
+function checkConditions() {
+    var authorName = document.getElementById("authornames").value;
+    var genreName = document.getElementById("genre").value;
+    var submitButton = document.getElementById("finalSubmit");
+
+    if (authorName !== "" && genreName !== "") {
+        submitButton.disabled = false;
+        submitButton.classList.remove("inactive-button");
+    } else {
+        submitButton.disabled = true;
+        submitButton.classList.add("inactive-button");
+    }
+}
+
+document.getElementById("authornames").addEventListener("input", checkConditions);
+document.getElementById("genre").addEventListener("input", checkConditions);
+
+document.getElementById("finalSubmit").addEventListener("click", function() {
+    alert("Form submitted!");
+    paper3.classList.add("flipped");
+    paper3.style.zIndex = 2;
+    closeBook(false);
+
+});
+
+checkConditions();
+
+
+    
+
 
 
 
