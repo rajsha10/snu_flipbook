@@ -1,4 +1,13 @@
+@font-face {
+    font-family: 'JamesFajardo';
+    src: url('/fonts/James\ Fajardo.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
+    font-family: 'JamesFajardo', sans-serif;
+    color: #040404;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -175,22 +184,23 @@ button {
 
 .form h3{
     text-align: center;
-    font-size: 35px;
+    font-size: 50px;
+    font-weight: 550;
+    line-height: 40px;
 }
 
 .form p{
     margin: 20px 0 40px 0;
     text-align: center;
-    font-size: 22px;
-    font-weight: 600;
+    font-size: 35px;
+    line-height: 30px;
 }
 
 .textbox{
-    text-align: center;
+    text-align: left;
     text-decoration: solid;
     color: maroon;
-    font-size: 35px;
-    font-weight: 700;
+    font-size: 40px;
     width: 100%;
     background: transparent;
     border: none;
@@ -199,19 +209,18 @@ button {
 
 .textbox::placeholder{
     color: maroon;
-    font-weight: 700;
 }
 
 .textboxCont{
-    border: solid 3px black;
-    border-radius: 10px;
-    padding: 10px 20px;
+    border: none;
+    border-bottom: solid 2px black;
+    padding: 0 20px;
 }
 
 .submit{
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 600;
     color: darkgreen;
-    font-weight: 700;
     text-align: center;
     border: solid 2px darkgreen;
     padding: 10px 20px;
@@ -308,3 +317,106 @@ button {
         pointer-events: none;
         opacity: 0.5;
     }
+
+/* Letter Codes */
+
+.mainLetterCont{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.letterContainer {
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.letter {
+    width: 93.7%;
+    height: 100%;
+    background: url(/img/Letter.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 0 20px maroon;
+}
+
+.letter h3{
+    width: 100%;
+    color: #040404;
+    display: flex;
+    font-size: 60px;
+    font-weight: 400;
+    text-align: center;
+}
+
+#personName{
+    display: inline;
+    font-weight: 500;
+}
+
+#budget{
+    font-weight: 600;
+}
+
+#recommendedArea{
+    border: solid 1px maroon;
+    width: 100%;
+    height: 100%;
+    color: #040404;
+    font-size: 30px;
+}
+
+/* Letter Button Area  */
+.extraArea{
+    height: 40%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: url(/img/Letter.png);
+    border: none;
+    border-radius: 20%;
+    box-shadow: 0 0 10px #040404;
+    margin-top: 50px;
+}
+
+.extraArea h3{
+    font-size: 50px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 40px;
+}
+
+#toHome{
+    font-size: 70px;
+    font-weight: 600;
+    background-color: maroon;
+    color: #fff;
+    padding: 10px 20px;
+    width: 50%;
+    align-self: center;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 7px #040404;
+    transition: all 0.15s ease-in;
+}
+
+#toHome:hover{
+    scale: 0.98;
+    box-shadow: 0 0 9px #040404;
+}
+
+#toHome:active{
+    scale: 0.96;
+    box-shadow: 0 0 11px #040404;
+}
+

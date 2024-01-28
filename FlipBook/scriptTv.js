@@ -167,12 +167,12 @@ document.body.addEventListener('click', function (event) {
         setChannelHidden('ch02', 'fullscreen-gif', 'fullScreenImage', 'ch03');
     } 
     if (event.target.id.includes('submitDetails')) {
-        setChannelHidden('ch03', 'fullscreen-gif', 'fullScreenImage', 'ch04');
+        window.location.href = 'letter.html';
     } 
 
-    //qr page
-    if (event.target.id.includes('done')) {
-        window.location.reload();
+    //to Home page
+    if (event.target.id.includes('toHome')) {
+        window.location.href = 'index.html';
     }    
 });
 
@@ -203,6 +203,9 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => console.error('Error:', error));
     });
   });
+
+
+
 
 
 
