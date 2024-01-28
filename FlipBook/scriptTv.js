@@ -167,12 +167,12 @@ document.body.addEventListener('click', function (event) {
         setChannelHidden('ch02', 'fullscreen-gif', 'fullScreenImage', 'ch03');
     } 
     if (event.target.id.includes('submitDetails')) {
-        window.location.href = 'letter.html';
+        window.location.href = '/letter';
     } 
 
     //to Home page
     if (event.target.id.includes('toHome')) {
-        window.location.href = 'index.html';
+        window.location.href = '/';
     }    
 });
 
