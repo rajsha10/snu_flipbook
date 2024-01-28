@@ -26,7 +26,7 @@ const handleBookDetails = (req, res) => {
   res.sendStatus(200);
 }
 
-const serverLetter = (req, res) => {
+const serverLetter = (_, res) => {
   const filePath = `${ROOT_DIR}/Flipbook/letter.html`;
   res.sendFile(filePath)
 }
@@ -34,12 +34,10 @@ const serverLetter = (req, res) => {
 const sendList = (_, res) => {
   const list = fs.readFileSync('./user_resource/recommendation.txt', 
   'utf-8')
-  console.log(JSON.stringify({list}))
   res.send(list);
 }
 
 const createApp = () => {
-    // Create a new Express application.
     const app = express();
     app.use(bodyParser.json())
     
