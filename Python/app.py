@@ -2,7 +2,7 @@ import google.generativeai as genai
 import os 
 from input import user_favorite_books, user_favorite_authors, user_topics_of_interest
 
-genai.configure(api_key=os.getenv("GOOGLE API KEY"))
+genai.configure(api_key='AIzaSyC_VRIjI7lhSRtd3JDJ73tR-7Do3PlS2Po')
 generation_config = {"temperature": 0.9, "top_p": 1, "top_k": 1, "max_output_tokens": 2048}
 
 model = genai.GenerativeModel("gemini-pro", generation_config=generation_config)

@@ -98,22 +98,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Send data to the server
       console.log(bookname, authorname, genre)
-      fetch('/submit', {
+      fetch('/submitBook', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: authorname,
-          book: bookname,
-          genre: genre,
+          user_favorite_authors: authorname,
+          user_favorite_books: bookname,
+          user_topics_of_interest: genre,
         }),
       })
-        .then(response => response.json())
+        .then(response => {
+            if(response.ok){
+                window.location.href= '/tv';
+            }
+           return response.json()})
         .then(data => {
           console.log(data);
         })
-        .catch(error => console.error('Error:', error));
     });
   });
 
