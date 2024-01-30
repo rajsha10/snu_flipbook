@@ -47,7 +47,7 @@ const createApp = () => {
     app.post("/submit", insertDetails)
     app.get('/letter', serverLetter)
     app.get('/recommend', sendList)
-    app.use(express.static("FlipBook"));
+    app.use(express.static("Flipbook"));
 
     return app;
 }
