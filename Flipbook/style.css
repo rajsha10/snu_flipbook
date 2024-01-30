@@ -2,11 +2,10 @@
     font-family: 'Caveat';
     src: url('/fonts/Caveat-VariableFont_wght.ttf') format('truetype');
     font-weight: normal;
-    font-style: normal;
 }
 
 * {
-    font-family: 'Caveat', sans-serif;
+    font-family: 'caveat', sans-serif;
     color: #040404;
     margin: 0;
     padding: 0;
