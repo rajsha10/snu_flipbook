@@ -119,7 +119,7 @@ function setChannelHidden(channelToHideId, fullscreenGifId, fullScreenImageId, c
     }, 1000);
 }
 
-// submit button ch03
+//submit button ch03
 document.addEventListener('DOMContentLoaded', function () {
     var nameInput = document.getElementById('nm');
     var phoneInput = document.getElementById('ph');

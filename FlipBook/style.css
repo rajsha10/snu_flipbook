@@ -329,7 +329,7 @@ button {
 }
 
 .letterContainer {
-    width: 40%;
+    width: 70%;
     height: 100vh;
     display: flex;
     justify-content: space-evenly;
@@ -339,7 +339,8 @@ button {
     width: 93.7%;
     height: 100%;
     background: url(/img/Letter.png);
-    background-size: contain;
+    background-size: cover;
+    background-position: bottom;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
@@ -363,16 +364,17 @@ button {
     font-weight: 500;
 }
 
-#budget{
+/* #budget{
     font-weight: 600;
-}
+} */
 
 #recommendedArea{
     border: solid 1px maroon;
     width: 100%;
     height: 100%;
     color: #040404;
-    font-size: 30px;
+    font-size: 37px;
+    font-weight: 600;
 }
 
 /* Letter Button Area  */
@@ -419,4 +421,17 @@ button {
     scale: 0.96;
     box-shadow: 0 0 11px #040404;
 }
+
+@media screen and (max-width: 1281px) {
+    body {
+        background-size: cover;
+    }
+
+    .book{
+        scale: 0.83;
+        left: -100px;
+    }
+
+}
+
 
