@@ -1,12 +1,12 @@
 @font-face {
-    font-family: 'JamesFajardo';
-    src: url('/fonts/James\ Fajardo.ttf') format('truetype');
+    font-family: 'rancho';
+    src: url('/fonts/Rancho-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 * {
-    font-family: 'JamesFajardo', sans-serif;
+    font-family: 'rancho', sans-serif;
     color: #040404;
     margin: 0;
     padding: 0;
