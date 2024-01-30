@@ -1,12 +1,12 @@
 @font-face {
-    font-family: 'rancho';
-    src: url('/fonts/Rancho-Regular.ttf') format('truetype');
+    font-family: 'Caveat';
+    src: url('/fonts/Caveat-VariableFont_wght.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 * {
-    font-family: 'rancho', sans-serif;
+    font-family: 'Caveat', sans-serif;
     color: #040404;
     margin: 0;
     padding: 0;
@@ -31,14 +31,16 @@ body {
     width: 440px;
     height: 660px;
     transition: transform 0.5s;
+    left: -100px;
+    bottom: 20px;
 }
 
 .bg{
     position: relative;
-    width: 500px;
+    width: 480px;
     height: 680px;
     top: 5px;
-    /* left: 0; */
+    left: 18px;
     /* right: 0; */
     /* right: 30; */
     transform-origin: left;
@@ -48,10 +50,10 @@ body {
 
 .bg1{
     position: relative;
-    width: 500px;
+    width: 480px;
     height: 680px;
     top: 5px;
-    /* left: 0; */
+    left: -20px;
     /* right: 0; */
     /* right: 30; */
     transform-origin: left;
@@ -60,10 +62,10 @@ body {
 
 .backbg{
     position: relative;
-    width: 500px;
+    width: 480px;
     height: 680px;
     top: 7px;
-    left: 12px;
+    left: 0px;
     transform-origin: left;
     transition: transform 0.5s;
     border-radius: 20px;
@@ -107,9 +109,10 @@ body {
 .back-content {
     width: 100%;
     height: 100%;
+
     display: flex;
     justify-content: center; 
-    align-items: center; 
+    align-items: flex-start; 
 }
 
 .back-content {
@@ -154,7 +157,7 @@ button {
     z-index: 2;
 }
 
-#p3 {
+#p3{
     z-index: 1;
 }
 
@@ -179,20 +182,22 @@ button {
 .form{
     position: relative;
     align-items: center;
+    text-align: center;
     width: 80%;
+    padding-top: 50px;
 }
 
 .form h3{
     text-align: center;
-    font-size: 50px;
-    font-weight: 550;
-    line-height: 40px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
 }
 
 .form p{
     margin: 20px 0 40px 0;
     text-align: center;
-    font-size: 35px;
+    font-size: 20px;
     line-height: 30px;
 }
 
@@ -200,8 +205,8 @@ button {
     text-align: left;
     text-decoration: solid;
     color: maroon;
-    font-size: 40px;
-    width: 100%;
+    font-size: 24px;
+    width: 80%;
     background: transparent;
     border: none;
     outline: none;
@@ -212,22 +217,21 @@ button {
 }
 
 .textboxCont{
+    width: 80%;
     border: none;
     border-bottom: solid 2px black;
-    padding: 0 20px;
+    margin-left: 40px;
 }
 
 .submit{
     font-size: 20px;
     font-weight: 600;
-    color: darkgreen;
+    color: #040404;
     text-align: center;
-    border: solid 2px darkgreen;
+    text-decoration: underline;
     padding: 10px 20px;
-    border-radius: 20px;
-    margin-top: 60px;
-    margin-left: 15px;
     transition: all 0.2s ease;
+    margin-top: 20px;
 }
 
 .submit:hover{
@@ -240,11 +244,11 @@ button {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 #finalSubmit{
-    font-size: 30px;
+    font-size: 24px;
 }
 
 /* .hi{
@@ -272,12 +276,12 @@ button {
         width: 440px;
         height: 100% ;
         top: 20px;
-        left: 0px;
+        left: 0;
         bottom: 20;
         transform-origin: left;
         transition: transform 0.5s;
         border-radius: 10px;
-        background-image: url('./img/RIGHTpg.png'); 
+        background-image: url('./img/RIGHTpg\(new\).png'); 
         background-size: cover; 
         background-position: center;
       }
@@ -288,11 +292,11 @@ button {
         width: 100%;
         height: 100%;
         top: 20px;
-        left: 10px;
+        left: 0px;
         transform-origin: left;
         transition: transform 0.5s;
         border-radius: 10px;
-        background-image: url(/img/RIGHTpg.png); 
+        background-image: url('./img/RIGHTpg\(new\).png'); 
         background-size: cover; 
         background-position: center;
       }
@@ -307,9 +311,10 @@ button {
         transform-origin: left;
         transition: transform 0.5s;
         border-radius: 10px;
-        background-image: url('./img/RIGHTpg.png'); 
+        background-image: url('./img/RIGHTpg\(new\).png'); 
         background-size: cover; 
         background-position: center;
+        text-align: center;
       }
 
 
@@ -373,8 +378,8 @@ button {
     width: 100%;
     height: 100%;
     color: #040404;
-    font-size: 37px;
-    font-weight: 600;
+    font-size: 32px;
+    /* font-weight: 600; */
 }
 
 /* Letter Button Area  */
