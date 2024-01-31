@@ -36,7 +36,7 @@ body, html {
 .onOff {
     position: relative;
     top: 37vh;
-    right: -70.2vw;
+    right: -70.5vw;
     background: url(/img/switch.png) center/cover no-repeat;
     height: 120px;
     width: 120px;
@@ -449,7 +449,51 @@ input::placeholder {
         margin: 20px 0px 0 0;
         height: 400px;
     }
+
+
 }
+
+@media screen and (max-width: 1920px){
+    .onOff{
+        top: 38vh;
+        right: -70vw;
+        height: 120px;
+        width: 120px;
+    }
+
+    .fullscreen-image{
+        left: 0;
+    } 
+
+    .imagePanel, .question p, .question2 p, .question3 p, .question4 p{
+        font-size: 40px;
+        margin: 50px 0 0 50px;
+    }
+
+    #channelNo{
+        font-size: 35px;
+        right: 6vw;
+    }
+
+    .imagePanel{
+        scale: 1.5;
+        margin: 100px 0 0 120px;
+    }
+
+    .image{
+        width: 250px;
+        height: 200px;
+    }
+
+    .priceArea{
+        margin: 100px 0px 0 0;
+        height: 400px;
+    }
+
+
+}
+
+
 
 
 

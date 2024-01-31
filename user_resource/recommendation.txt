@@ -1,47 +1,15 @@
-**Localized Suggestions:**
+**Localized Suggestions**
 
-<<<<<<< HEAD
-1. "Sita Returns: Modern India through Her Eyes": This book offers a unique perspective on the evolution of modern India through the eyes of Sita, a character from the epic Ramayana. It provides an insightful exploration of Indian history, mythology, and the role of women in society.
+* A City in the Making: Aspects of Calcutta’s Early Growth - Sukanta Chaudhuri
+* Bengal Culture: Over a Thousand Years - Sibnarayan Ray
+* Dala's Street - Priya Hajra
+* Masala and - Prithvi Datta
+* Tracing Marco Polo’s Journey: The Bengal Route - Nilanjan Bhowmik
 
-2. "Architecture of Santiniketan: Tagore's Concept of Space": This book delves into the architectural vision of Rabindranath Tagore, focusing on the design and significance of buildings in Santiniketan, including the famous Visva Bharati University. It offers a unique perspective on the relationship between architecture, art, and culture in India.
+**Global Suggestions**
 
-3. "Masala and Murder": Set in the vibrant city of Kolkata, this mystery novel combines culinary delights with thrilling suspense. It features a young chef who stumbles upon a murder and uses her culinary skills to solve the case.
-
-4. "Charu Majumdar: The Dreamer Rebel": This biographical novel narrates the life of Charu Majumdar, a prominent leader of the Naxalite movement in India. It offers a glimpse into the socio-political struggles of the 1960s and 1970s and provides a deeper understanding of the challenges faced by marginalized communities.
-
-5. "Phantom Lovers: Two Novellas": This collection features two novellas that explore the themes of love, loss, and longing. It is a poignant exploration of human relationships and emotions, told in a lyrical and evocative style.
-
-**Generalized Suggestions:**
-
-1. "The Little Prince": This classic children's book by Antoine de Saint-Exupéry tells the story of a pilot who crash-lands in the desert and meets a young prince from another planet. The book delves into themes of friendship, love, and the meaning of life.
-
-2. "Robinson Crusoe": Daniel Defoe's timeless adventure novel chronicles the tale of a shipwrecked sailor who spends 28 years on a remote island. It explores themes of survival, isolation, and the human capacity for adaptation.
-
-3. "The Wind in the Willows": This beloved children's book by Kenneth Grahame follows the adventures of anthropomorphic animals living in the English countryside. It is a classic tale of friendship, loyalty, and the beauty of nature.
-
-4. "A Dog’s Tale’ and ‘Jungle Stories": This compilation of two classic works by Rudyard Kipling includes "A Dog's Tale," which explores the unique bond between a man and his dog, and "Jungle Stories," a collection of animal fables set in the Indian jungle.
-
-5. "White & Black: Journey to the Centre of Imperial Calcutta": This non-fiction book by Clare Anderson offers a historical exploration of Calcutta during the British Raj. It provides a detailed look at the city's architecture, culture, and social dynamics, making it a valuable resource for anyone interested in urban history.
-=======
-1. "God of Small Things" by Arundhathi Roy (Thriller)
-
-2. "Masala and Murder" by Jhumpa Lahiri (Comedy)
-
-3. "The Forgotten Palaces of Calcutta" by Khaleed Hosseini (Politics)
-
-4. "Preeto & Other Stories: The Male Gaze in Urdu" by Krishnagopal Mallick (Politics)
-
-5. "Soumitra Chatterjee: A Life in Cinema, Theatre, Poetry & Painting" by Krishnagopal Mallick (Politics)
-
-**Generalized Suggestions:**
-
-1. "I, Anupam" by Anupam Kher (Comedy)
-
-2. "The Life an Times of David Hare: First Secular Educationist of India" by David Hare (Politics)
-
-3. "The Hungry Stones and Other Stories" by Rabindranath Tagore (Thriller)
-
-4. "The Little Prince" by Antoine de Saint-Exupï¿½ry (Comedy)
-
-5. "Robinson Crusoe" by Daniel Defoe (Thriller)
->>>>>>> c3c0caccacc1089d9551b52a342655d0e0207f97
+* Entering the Maze: Queer Fiction of Jogendra Nath Gupta - Amitananda Das
+* The Bhagavad Gita: A Life-Changing Conversation - Christopher Isherwood
+* The Little Prince - Antoine de Saint-Exupéry
+* Robinson Crusoe - Daniel Defoe
+* Yatra: An Unfinished Novel - Khushwant Singh
