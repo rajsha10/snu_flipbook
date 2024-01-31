@@ -235,8 +235,7 @@ button {
 
 .submit:hover{
     scale: 0.98;
-    background-color: darkgreen;
-    color: white;
+    opacity: 0.9;
 }
 
 .finalButCont{
