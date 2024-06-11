@@ -14,11 +14,11 @@ https://www.figma.com/proto/47yj0VAJZwt9CM7ASGWvEw/Promotion?page-id=765%3A2&nod
 
 Flipbook prototype design
 <div>
-    <img src="" alt="Flipbook_image">
+    <img src="Flipbook/img/Flipbook_prototype_design.png" alt="Flipbook_image">
 </div>
 
 Television prototype design
 <div>
-    <img src="" alt="TV_image">
+    <img src="Flipbook/img/TV_prototype_design.png" alt="TV_image">
 </div>
 
